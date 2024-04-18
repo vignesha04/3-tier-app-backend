@@ -1,18 +1,18 @@
 pipeline {
     agent {
-        label 'Docker-Node'
+        label 'jumpserver'
     }
 
     environment {
         KUBECONFIG_CREDENTIAL_ID = 'k8s-kubeconfig-dev'
         version = "backend_${env.BUILD_NUMBER}"
-        docker_image = "persevcareers6577/perseverance-project:${version}"
+        docker_image = "vigneshv04/three-tier-app:${version}"
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/persevcareers/Project-Final-Backend.git'
+                git branch: 'main', url: 'https://github.com/vignesha04/3-tier-app-backend.git'
             }
         }
 
@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     def dockerfilePath = '.'
-                   sh "sudo docker build -t 'persevcareers6577/perseverance-project:${version}' ."
+                   sh "sudo docker build -t 'vigneshv04/three-tier-app:${version}' ."
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    sh "sudo docker push 'persevcareers6577/perseverance-project:${version}'"
+                    sh "sudo docker push 'vigneshv04/three-tier-app:${version}'"
                 }
             }
         } 
