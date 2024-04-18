@@ -11,7 +11,7 @@ pipeline {
         stage('Clone DB Repository') {
             steps {
                         sh 'echo "Cloning required code base"'
-                        git branch: 'main', url: 'https://github.com/persevcareers/Project-Final-Backend.git'
+                        git branch: 'main', url: 'https://github.com/vignesha04/3-tier-app-backend.git'
             }
         }
 
