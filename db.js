@@ -11,11 +11,11 @@ module.exports = async () => {
         };
         const useDBAuth = process.env.USE_DB_AUTH || false;
         if(useDBAuth){
-            connectionParams.user = process.env.MONGO_USERNAME;
-            connectionParams.pass = process.env.MONGO_PASSWORD;
+            connectionParams.user = process.env.DB_USERNAME;
+            connectionParams.pass = process.env.DB_PASSWORD;
         }
         await mongoose.connect(
-           process.env.MONGO_CONN_STR,
+           process.env.DB_CONN_STR,
            connectionParams
         );
         console.log("Connected to database.");
