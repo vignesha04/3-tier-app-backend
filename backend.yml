@@ -4,16 +4,16 @@ metadata:
   name: backend-api
   namespace: three-tier
   labels:
-    role: backend
+    app: backend
 spec:
   replicas: 2
   selector:
     matchLabels:
-      role: backend
+      app: backend
   template:
     metadata:
       labels:
-        role: backend
+        app: backend
     spec:
       containers:
       - name: backend-api
@@ -48,4 +48,4 @@ spec:
     nodePort: 30008
     protocol: TCP
   selector:
-    role: backend
+    app: backend
